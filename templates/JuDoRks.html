@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JuDoRks</title>
+        <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    </head>
+    <body style="background-color: rgb(39, 180, 150);" class="container">
+        <h1> Welcome all JuDoRks! Let's talk about Judo!</h1>
+    <div id="createThread" class="row"> 
+        <div class='card' style="background-color: rgb(39, 180, 150);">
+            <form > <!--Form to create a new Thread, will send information in form of an JSON object to an array-->
+                <label>New Thread</label>
+                <br/>
+                <textarea id='content' maxlength="500">
+                </textarea>
+                <br/>
+                <input type='submit' id='submitThread' value='Create Thread'>    
+            </form>
+            </div>
+    </div>
+    
+    <br/>
+    <div id="viewThreads" class="row" > 
+        <form action="/data" method="GET"> 
+        <input type="submit" value="See All Threads">
+        </form>
+    </div>
+    <div id="threadViewer" class="row"> <!--All threads will show here as cards with comment section-->
+
+    </div>
+    <script> 
+
+document.getElementById('submitThread').addEventListener('click', function(){
+           
+           let content = document.getElementById('content').value;
+           let comment = '';
+           var newThread = {content,comment};
+
+           fetch('/create', {
+               method: 'POST', 
+               headers: {
+                   'Content-Type': 'application/json',
+               },
+               body: JSON.stringify(newThread), //request body that will show in server.js//
+               })
+               .then(response => response.json())
+               .then(data => {
+               console.log('Success:', data);
+               })
+               .catch((error) => {
+               console.error('Error:', error);
+               });
+               
+           });
+
+    
+    
+    </script>
+    </body>
+    </html>

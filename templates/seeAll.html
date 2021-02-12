@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <title>All Threads</title>
+        <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
+integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    </head>
+    <body class="container">
+        <h1>See All Threads</h1>
+        <div>
+            <form class="card">
+                ${tData.map(thread => `
+                    <label action='/'>${thread.thread.content}</label>
+                    <input type="text" value="type comment here">
+                    <input type="submit" value="Submit">
+                    <br>
+
+                `).join('')}
+                </form>
+        </div>
+    </body>
+</html>
