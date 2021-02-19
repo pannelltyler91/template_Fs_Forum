@@ -6,10 +6,10 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" 
 integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     </head>
-    <body style="background-color: rgb(39, 180, 150);" class="container">
+    <body style="background-color:aquamarine;" class="container">
         <h1> Welcome all JuDoRks! Let's talk about Judo!</h1>
     <div id="createThread" class="row"> 
-        <div class='card' style="background-color: rgb(39, 180, 150);">
+        <div class='card' style='background-color:aquamarine;'>
             <form > <!--Form to create a new Thread, will send information in form of an JSON object to an array-->
                 <label>New Thread</label>
                 <br/>
@@ -35,7 +35,7 @@ integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKm
 document.getElementById('submitThread').addEventListener('click', function(){
            
            let content = document.getElementById('content').value;
-           let comment = '';
+           let comment = [];
            var newThread = {content,comment};
 
            fetch('/create', {

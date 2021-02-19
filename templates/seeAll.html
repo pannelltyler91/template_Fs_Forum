@@ -10,15 +10,21 @@ integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKm
     <body class="container">
         <h1>See All Threads</h1>
         <div>
-            <form class="card">
-                ${tData.map(thread => `
-                    <label action='/'>${thread.thread.content}</label>
-                    <input type="text" value="type comment here">
+            ${tData.map(thread => `
+                <form  action='/${thread.id}' method='POST' class="card" id='commentForm${thread.id}'>
+                    <label >${thread.thread.content}</label>
+                    <input type="text" id='content'value="type comment here" name="comment">
                     <input type="submit" value="Submit">
                     <br>
+                    ${thread.id}
+                </form>
+                
 
                 `).join('')}
-                </form>
         </div>
+        <script>
+           
+
+        </script>
     </body>
 </html>

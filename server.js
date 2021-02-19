@@ -18,7 +18,7 @@ var threads =[
 
 ]
 
-var idCount = 0;
+var idCount = 2;
 
 app.get('/', (req,resp) => {
     resp.render('JuDoRks');
@@ -40,8 +40,20 @@ resp.send(threads);
 })
 
 app.post('/:id', (req,resp) => {
-    
+    var commentCount = 0;
+    var foundThread = threads.find((element)=> element.id == parseInt(req.params.id));
+   
+    foundThread.thread.comment.push(req.body.comment);
+//     console.log(req.body.comment);
+//     console.log(req.params.id);
+//    console.log(foundThread);
+   
+console.log(threads);
+   resp.send(foundThread);
+
 })
+
+
     
 
 
